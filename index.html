@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentally Prepare</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Lato&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: #FDF7F8;
+      color: #333;
+      line-height: 1.6;
+    }
+    .hero {
+      background-color: #C497A4;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+    }
+    .hero p { font-size: 1.3rem; margin-top: 10px; }
+    .cta-btn {
+      background-color: white;
+      color: #C497A4;
+      padding: 12px 25px;
+      margin-top: 30px;
+      display: inline-block;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav {
+      background-color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #C497A4;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      color: #C497A4;
+      margin-bottom: 10px;
+    }
+    ul { list-style-type: square; margin-left: 20px; }
+    .contact a {
+      color: #C497A4;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .open-popup {
+      background-color: #C497A4;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    footer {
+      text-align: center;
+      background: #f2f2f2;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      height: 100vh; width: 100vw;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+      position: relative;
+    }
+    .form-container h2 { color: #C497A4; margin-bottom: 10px; }
+    .form-container input,
+    .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .form-container button {
+      background-color: #C497A4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .close-popup {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #999;
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.2rem; }
+      section { padding: 40px 15px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#community">Community</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <header class="hero">
+    <h1>Mentally Prepare</h1>
+    <p>For Students. By Students.</p>
+    <a href="https://yourforum.epizy.com" class="cta-btn" target="_blank">Join Our Community Forum</a>
+  </header>
+  <section id="about">
+    <h2>Why We Exist</h2>
+    <p>Mentally Prepare is a safe space where students can talk, vent, heal, and grow — together. Built by a psychology student who’s been through the chaos of exams and emotions, this space is for you.</p>
+  </section>
+  <section id="community">
+    <h2>Our Community</h2>
+    <p>We’ve created a student-led forum inspired by Reddit where you can start or join mental health discussions, share thoughts, post experiences, and support others. Click the button above to visit the forum.</p>
+  </section>
+  <section id="blog">
+    <h2>Student Blog</h2>
+    <p>Coming soon: Reflections, resources, and personal stories from students across the globe. This section will be updated regularly with blogs written by and for students navigating mental health and academic life.</p>
+  </section>
+  <section class="contact" id="contact">
+    <h2>Let’s Stay Connected</h2>
+    <p>Follow us on Instagram: <a href="https://instagram.com/yourhandle" target="_blank">@yourhandle</a></p>
+    <p>Email us: <a href="mailto:mentallyprepare@gmail.com">mentallyprepare@gmail.com</a></p>
+    <button class="open-popup">Contact Form</button>
+  </section>
+  <div class="popup" id="popupForm">
+    <div class="form-container">
+      <span class="close-popup">&times;</span>
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2025 Mentally Prepare | Built with care by Cynthia</p>
+  </footer>
+  <script>
+    const openBtn = document.querySelector(".open-popup");
+    const popup = document.getElementById("popupForm");
+    const closeBtn = document.querySelector(".close-popup");
+
+    openBtn.addEventListener("click", () => {
+      popup.style.display = "flex";
+    });
+    closeBtn.addEventListener("click", () => {
+      popup.style.display = "none";
+    });
+    window.addEventListener("click", (e) => {
+      if (e.target === popup) {
+        popup.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
